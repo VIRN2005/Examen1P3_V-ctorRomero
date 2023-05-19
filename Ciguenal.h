@@ -4,8 +4,9 @@ class Ciguenal {
 public:
     int caballosFuerza;
     int velMax;
-
-    Ciguenal(int cf, int vm);
+    
+    Ciguenal();
+    Ciguenal(int , int );
 };
 
 

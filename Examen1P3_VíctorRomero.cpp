@@ -1,6 +1,53 @@
 #include <iostream>
+#include <vector>
+
+#include "Auto.h"
+#include "Ciguenal.h"
+#include "Radiador.h"
+#include "Neumatico.h"
+#include "Diferencial.h"
+#include "CajaDeCambios.h"
 using namespace std;
 
+static vector<Auto*> AutosAgregados;
+
+static vector<Ciguenal*> CiguenalAdd;
+static vector<Diferencial*> DiferencialAdd;
+static vector<Radiador*> RadiadorAdd;
+static vector<CajaDeCambios*> CajaAdd;
+static vector<Neumaticos*> NeumaticosAdd;
+
+//Agregar Auto
+void AgregarAuto() {
+	string marca, modelo;
+	int velMax, caballosFuerza;
+	float aceleracion;
+
+	// Solicitar al usuario los datos 
+	cout << "Ingrese la marca del auto: ";
+	cin >> marca;
+
+	cout << "Ingrese el modelo del auto: ";
+	cin >> modelo;
+
+	cout << "Ingrese la velocidad máxima (km/h): ";
+	cin >> velMax;
+
+	cout << "Ingrese los caballos de fuerza: ";
+	cin >> caballosFuerza;
+
+	cout << "Ingrese la aceleración (tiempo en llegar de 0 a 100 km/h): ";
+	cin >> aceleracion;
+
+	Auto* autoNuevo = new Auto(marca, modelo, velMax, caballosFuerza, aceleracion);
+	AutosAgregados.push_back(autoNuevo);
+	cout << "\n>> Auto Agregado Exitosamente! <<\n\n";
+}
+
+//Modificar
+
+
+// Menu
 void menu() {
 	setlocale(LC_ALL, "spanish");
 	int opcion = 0;
@@ -25,13 +72,17 @@ void menu() {
 			  break;
 
 		case 1: {
-			cout << ">> Agregar Auto <<"
-			
+			cout << ">> Agregar Auto <<\n\n";
+			AgregarAuto();
 		}
 			  break;
 
 		case 2: {
+			cout << ">> Modificar Auto <<\n\n";
 
+			for (int i = 0; i < AutosAgregados.size(); i++) {
+				cout << i << ":" << AutosAgregados[i] << endl;
+			}
 		}
 			  break;
 

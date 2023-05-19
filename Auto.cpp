@@ -2,21 +2,17 @@
 #include <iostream>
 using namespace std;
 
-Auto::Auto(string marca, string modelo, int velocidadMax, int cabFuerza, float acelera) {
-    // Hacer el contructor de cada variable a mencionar
-    marca = marca;
-    modelo = modelo;
-    velMax = velocidadMax;
-    caballosFuerza = cabFuerza;
-    aceleracion = acelera;
+Auto::Auto() {
 
-    // Declarar los pointers como nulls para evitar algun prob...
-    // Ya sabemos como es C++ JAJAJA
-    ciguenal = nullptr;
-    radiador = nullptr;
-    neumaticos = nullptr;
-    diferencial = nullptr;
-    cajacambios = nullptr;
+}
+
+Auto::Auto(string Marca, string Modelo, int VelocidadMax, int cabFuerza, float acelera) {
+    // Hacer el contructor de cada variable a mencionar
+    this->marca = Marca;
+    this->modelo = Modelo;
+    this->velMax = VelocidadMax;
+    this->caballosFuerza = cabFuerza;
+    this->aceleracion = acelera;
 }
 
 void Auto::mostrarDatos() {

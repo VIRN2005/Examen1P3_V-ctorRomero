@@ -1,26 +1,29 @@
 #pragma once
-
+#include <iostream>
 #include <string>
-#include "Cigueñal.h"
+#include "Ciguenal.h"
 #include "Radiador.h"
-#include "Neumaticos.h"
+#include "Neumatico.h"
 #include "Diferencial.h"
 #include "CajaDeCambios.h"
+using namespace std;
 
 class Auto {
 public:
-    std::string marca;
-    std::string modelo;
+    string marca;
+    string modelo;
     int velMax;
     int caballosFuerza;
     float aceleracion;
+
     Ciguenal* ciguenal;
     Radiador* radiador;
     Neumaticos* neumaticos;
     Diferencial* diferencial;
     CajaDeCambios* cajacambios;
 
-    Auto(string marca, string modelo, int velMax, int caballosFuerza, float aceleracion);
+    Auto();
+    Auto(string, string, int, int, float);
     ~Auto();
     void mostrarDatos();
 };

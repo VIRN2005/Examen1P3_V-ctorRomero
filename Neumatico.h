@@ -4,6 +4,7 @@ class Neumaticos {
 public:
     float aceleracion;
 
-    Neumaticos(float Aceleracion);
+    Neumaticos();
+    Neumaticos(float );
 };
 
