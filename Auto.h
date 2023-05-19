@@ -26,6 +26,7 @@ public:
     Auto(string, string, int, int, float);
     ~Auto();
     void mostrarDatos();
+    int modificarAuto(int);
 };
 
 

@@ -50,6 +50,7 @@ void AgregarAuto() {
 // Menu
 void menu() {
 	setlocale(LC_ALL, "spanish");
+
 	int opcion = 0;
 
 	do {
@@ -81,8 +82,31 @@ void menu() {
 			cout << ">> Modificar Auto <<\n\n";
 
 			for (int i = 0; i < AutosAgregados.size(); i++) {
-				cout << i << ":" << AutosAgregados[i] << endl;
+				cout << i << "=";
+				AutosAgregados[i]->mostrarDatos();
 			}
+			cout << endl;
+
+			cout << "Seleccione el auto a modificar: ";
+			int autoMod;
+			cin >> autoMod;
+
+			cout << "Seleccione el componente a modificar:" << endl;
+			cout << "1) Cigüeñal" << endl;
+			cout << "2) Radiador" << endl;
+			cout << "3) Neumáticos" << endl;
+			cout << "4) Diferencial" << endl;
+			cout << "5) Caja de Cambios" << endl;
+
+			int opcion;
+			cin >> opcion;
+
+			AutosAgregados.at(autoMod)->modificarAuto(opcion);
+
+			for (int i = 0; i < AutosAgregados.size(); i++) {
+				AutosAgregados[i]->mostrarDatos();
+			}
+			cout << endl;
 		}
 			  break;
 
