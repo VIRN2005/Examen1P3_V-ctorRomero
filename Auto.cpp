@@ -3,6 +3,7 @@
 #include <iostream>
 using namespace std;
 
+//Constructores
 Auto::Auto() {
 
 }
@@ -16,6 +17,7 @@ Auto::Auto(string Marca, string Modelo, int VelocidadMax, int cabFuerza, float a
 	this->aceleracion = acelera;
 }
 
+//Listar
 void Auto::mostrarDatos() {
 	cout << ">> Marca: " << marca << endl;
 	cout << ">> Modelo: " << modelo << endl;
@@ -24,6 +26,7 @@ void Auto::mostrarDatos() {
 	cout << ">> Aceleración: " << aceleracion << " segundos" << endl;
 }
 
+//Modificar
 int Auto::modificarAuto(int opcion) {
 	switch (opcion) {
 	case 1: {
@@ -85,6 +88,44 @@ int Auto::modificarAuto(int opcion) {
 		   return 0;
 	}
 }
+
+//Carrera
+float Auto::calcularTiempoAceleracion() {
+	return velMax / aceleracion;
+}
+
+float Auto::calcularDistanciaAceleracion(float ta) {
+	return 0.5 * aceleracion * pow(ta, 2);
+}
+
+float Auto::calcularTiempoVelocidadMax(float da, float d) {
+	return (da - d) / velMax;
+}
+
+float Auto::calcularTiempoTotal(float ta, float tvmax) {
+	return ta + tvmax;
+}
+
+void Auto::simularCarrera(Auto* otroAuto, float distancia) {
+	float ta = calcularTiempoAceleracion();
+	float da = calcularDistanciaAceleracion(ta);
+	float tvmax = calcularTiempoVelocidadMax(da, distancia);
+	float t_total = calcularTiempoTotal(ta, tvmax);
+
+	cout << "Tiempo total del auto " << marca << ": " << t_total << " segundos" << endl;
+	cout << "Tiempo total del auto " << otroAuto->marca << ": " << otroAuto->calcularTiempoTotal(ta, tvmax) << " segundos" << endl;
+
+	if (t_total < otroAuto->calcularTiempoTotal(ta, tvmax)) {
+		cout << "El auto " << marca << " ganó la carrera." << endl;
+	}
+	else if (t_total > otroAuto->calcularTiempoTotal(ta, tvmax)) {
+		cout << "El auto " << otroAuto->marca << " ganó la carrera." << endl;
+	}
+	else {
+		cout << "¡Es un empate!" << endl;
+	}
+}
+
 Auto::~Auto() {
 	//Destructor
 	delete ciguenal;

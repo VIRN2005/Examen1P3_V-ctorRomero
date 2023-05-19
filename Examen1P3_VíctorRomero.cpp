@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 #include "Auto.h"
 #include "Ciguenal.h"
@@ -44,7 +45,7 @@ void AgregarAuto() {
 	cout << "\n>> Auto Agregado Exitosamente! <<\n\n";
 }
 
-//Modificar
+
 
 
 // Menu
@@ -72,26 +73,30 @@ void menu() {
 		}
 			  break;
 
-		case 1: {
+//--------------------------------------------------------------------
+
+		case 1: { //Agregar
 			cout << ">> Agregar Auto <<\n\n";
 			AgregarAuto();
 		}
 			  break;
 
-		case 2: {
+//--------------------------------------------------------------------
+
+		case 2: { //Modificar
 			cout << ">> Modificar Auto <<\n\n";
 
 			for (int i = 0; i < AutosAgregados.size(); i++) {
-				cout << i << "=";
+				cout << "Auto # " << i << " = " << endl;
 				AutosAgregados[i]->mostrarDatos();
 			}
 			cout << endl;
 
-			cout << "Seleccione el auto a modificar: ";
+			cout << "> Seleccione el auto a modificar: ";
 			int autoMod;
 			cin >> autoMod;
 
-			cout << "Seleccione el componente a modificar:" << endl;
+			cout << "> Seleccione el componente a modificar:" << endl;
 			cout << "1) Cigüeñal" << endl;
 			cout << "2) Radiador" << endl;
 			cout << "3) Neumáticos" << endl;
@@ -104,19 +109,79 @@ void menu() {
 			AutosAgregados.at(autoMod)->modificarAuto(opcion);
 
 			for (int i = 0; i < AutosAgregados.size(); i++) {
+				cout << "Auto # " << i << " = " << endl;
 				AutosAgregados[i]->mostrarDatos();
 			}
 			cout << endl;
 		}
 			  break;
+	
+//--------------------------------------------------------------------
+		
+		case 3: { // Ordenar
+			cout << ">> Ordenar Autos <<\n\n";
 
-		case 3: {
+			for (int i = 0; i < AutosAgregados.size(); i++) {
+				cout << "Auto # " << i << " = " << endl;
+				AutosAgregados[i]->mostrarDatos();
+			}
+			cout << endl;
 
+			int opcionOrden;
+			cout << "> Seleccione la especificación para ordenar los autos:" << std::endl;
+			cout << "1) Velocidad máxima" << std::endl;
+			cout << "2) Caballos de fuerza" << std::endl;
+			cout << "3) Aceleración" << std::endl;
+			cin >> opcionOrden;
+
+			/*
+			switch (opcionOrden) {
+			case 1: {
+				sort(AutosAgregados.begin(), AutosAgregados.end(), Auto::compararVelocidadMax);
+			}
+				  break;
+
+			case 2: {
+				sort(AutosAgregados.begin(), AutosAgregados.end(), Auto::compararCaballosFuerza);
+			}
+				  break;
+
+			case 3: {
+				sort(AutosAgregados.begin(), AutosAgregados.end(), Auto::compararAceleracion);
+			}
+				  break;
+
+			default: {
+				cout << "Opción inválida." << std::endl;
+			}
+				   break;
+			}*/
 		}
 			  break;
 
-		case 4: {
+//--------------------------------------------------------------------
 
+		case 4: { // Carrera
+			// Seleccionar dos autos existentes
+			
+			int carro1, carro2;
+			cout << "Seleccione el primer auto: ";
+			cin >> carro1;
+			cout << "Seleccione el segundo auto: ";
+			cin >> carro2;
+
+			// Verificar que los números ingresados sean válidos
+			if (carro1 < 0 || carro1 >= AutosAgregados.size() || carro2 < 0 || carro2 >= AutosAgregados.size()) {
+				cout << "Selección inválida. Saliendo del programa." << std::endl;
+			}
+
+			// Obtener las distancias de la carrera
+			float distancia;
+			cout << "Ingrese la distancia de la carrera (en km): ";
+			cin >> distancia;
+
+			// Simular la carrera entre los dos autos seleccionados
+			AutosAgregados[carro1]->simularCarrera(AutosAgregados[carro2], distancia);
 		}
 			  break;
 

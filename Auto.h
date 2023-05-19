@@ -25,8 +25,19 @@ public:
     Auto();
     Auto(string, string, int, int, float);
     ~Auto();
+    
     void mostrarDatos();
     int modificarAuto(int);
+    
+    bool compararVelocidadMax(const Auto&, const Auto&);
+    bool compararCaballosFuerza(const Auto&, const Auto&);
+    bool compararAceleracion(const Auto&, const Auto&);
+
+    float calcularTiempoAceleracion();
+    float calcularDistanciaAceleracion(float);
+    float calcularTiempoVelocidadMax(float, float);
+    float calcularTiempoTotal(float, float);
+    void simularCarrera(Auto*, float);
 };
 
 
