@@ -2,51 +2,58 @@
 using namespace std;
 
 void menu() {
-    setlocale(LC_ALL, "spanish");
-    int opcion = 0;
+	setlocale(LC_ALL, "spanish");
+	int opcion = 0;
 
-    do {
-        cout << "-----------MENU DE CARRERAS-----------\n";
-        cout << "1) Agregar Auto\n"
-            << "2) Modificar Auto\n"
-            << "3) Ordenar Autos\n"
-            << "4) Carrera\n\n";
-    } while (opcion != 0);
+	do {
+		cout << "-----------MENU DE CARRERAS-----------\n";
+		cout << "1) Agregar Auto\n"
+			<< "2) Modificar Auto\n"
+			<< "3) Ordenar Autos\n"
+			<< "4) Carrera\n\n";
 
-    cout << ">> Ingrese una opcion del menu: ";
-    cin >> opcion;
+		cout << ">> Ingrese una opcion del menu: ";
+		cin >> opcion;
 
-    cout << "La opcion escojida es :" << opcion << endl << endl;
+		cout << "La opcion escojida es :" << opcion << endl << endl;
 
-    switch (opcion) {
-    case 0: {
+		switch (opcion) {
+		case 0: {
+			cout << "Gracias por participar!\n"
+				<< "Feliz dia :D";
+		}
+			  break;
 
-    }
-          break;
+		case 1: {
+			cout << ">> Agregar Auto <<"
+			
+		}
+			  break;
 
-    case 1: {
+		case 2: {
 
-    }
-          break;
+		}
+			  break;
 
-    case 2: {
+		case 3: {
 
-    }
-          break;
+		}
+			  break;
 
-    case 3: {
+		case 4: {
 
-    }
-          break;
+		}
+			  break;
 
-    case 4: {
-
-    }
-          break;
-    }
+		default: {
+			cout << "Valor digitado no es valido\n\n";
+		}
+			   break;
+		}
+	} while (opcion != 0);
 
 }
 
 int main() {
-    std::cout << "Hello World!\n";
+	menu();
 }
