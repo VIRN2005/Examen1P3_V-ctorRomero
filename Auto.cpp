@@ -89,6 +89,19 @@ int Auto::modificarAuto(int opcion) {
 	}
 }
 
+//Ordenar
+/*bool Auto::compararVelocidadMax(const Auto& a, const Auto& b) {
+    return a.velMax > b.velMax;
+}
+
+bool Auto::compararCaballosFuerza(const Auto& a, const Auto& b) {
+    return a.caballosFuerza > b.caballosFuerza;
+}
+
+bool Auto::compararAceleracion(const Auto& a, const Auto& b) {
+    return a.aceleracion > b.aceleracion;
+}*/
+
 //Carrera
 float Auto::calcularTiempoAceleracion() {
 	return velMax / aceleracion;

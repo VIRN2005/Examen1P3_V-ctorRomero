@@ -73,7 +73,7 @@ void menu() {
 		}
 			  break;
 
-//--------------------------------------------------------------------
+			  //--------------------------------------------------------------------
 
 		case 1: { //Agregar
 			cout << ">> Agregar Auto <<\n\n";
@@ -81,7 +81,7 @@ void menu() {
 		}
 			  break;
 
-//--------------------------------------------------------------------
+			  //--------------------------------------------------------------------
 
 		case 2: { //Modificar
 			cout << ">> Modificar Auto <<\n\n";
@@ -115,9 +115,9 @@ void menu() {
 			cout << endl;
 		}
 			  break;
-	
-//--------------------------------------------------------------------
-		
+
+			  //--------------------------------------------------------------------
+
 		case 3: { // Ordenar
 			cout << ">> Ordenar Autos <<\n\n";
 
@@ -133,6 +133,25 @@ void menu() {
 			cout << "2) Caballos de fuerza" << std::endl;
 			cout << "3) Aceleración" << std::endl;
 			cin >> opcionOrden;
+
+			bool compararAutos(const Auto & a, const Auto & b, int especificacion) {
+				switch (especificacion) {
+				case 1: { // Velocidad
+					return a.velMax > b.velMax;
+				}
+					  break;
+
+				case 2: { // Caballos
+					return a.caballosFuerza > b.caballosFuerza;
+				}
+					  break;
+
+				case 3: { // AAceleracion
+					return a.aceleracion > b.aceleracion;
+				}
+					  break;
+				}
+			}
 
 			/*
 			switch (opcionOrden) {
@@ -159,11 +178,11 @@ void menu() {
 		}
 			  break;
 
-//--------------------------------------------------------------------
+			  //--------------------------------------------------------------------
 
 		case 4: { // Carrera
 			// Seleccionar dos autos existentes
-			
+
 			int carro1, carro2;
 			cout << "Seleccione el primer auto: ";
 			cin >> carro1;
